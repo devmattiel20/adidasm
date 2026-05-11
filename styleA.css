@@ -79,3 +79,20 @@ body{
 .next:hover{
     background-color: rgba(0,0,0,0.8);
 }
+
+
+.informacion{
+    margin-left: 90px;
+    margin-right: 90px;
+    padding: 30px;
+    display: flex;
+    background-color: rgb(223, 223, 223);
+}
+
+.text-container{
+    margin: 80px;
+}
+
+.imagei{
+    border-radius: 10px;
+}
