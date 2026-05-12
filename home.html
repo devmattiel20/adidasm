@@ -22,6 +22,9 @@
           <li>Contacto</li>
           <li>tiendas</li>
         </ul>
+        <button class="cart-btn" id="open-cart">
+            🛒 <span id="cart-count">0</span>
+        </button>
       </nav>
 
       <section class="carousel">
@@ -60,14 +63,14 @@
           <div class="card" data-aos="fade-down">
             <div class="imagep">
               <img class="foto" src="./images/camisetaOne.avif" width="180px" />
-            </div>
+            </div> 
             <div class="textp">
               <h3>White Shirt</h3>
               <p>Lorem ipsum dolor sit amet consectetur.</p>
             </div>
             <div class="buttonp">
-              <button class="viewbutton">Ver</button>
-              <button class="carbutton">Añadir</button>
+              <button class="viewbutton" > Ver</button>
+              <button class="carbutton add-to-cart" data-name="White Shirt" data-price="29.99">Añadir</button>
             </div>
           </div>
 
@@ -79,9 +82,9 @@
               <h3>Black Shirt</h3>
               <p>Lorem ipsum dolor sit amet consectetur.</p>
             </div>
-            <div class="buttonp">
+            <div class="buttonp"> 
               <button class="viewbutton">Ver</button>
-              <button class="carbutton">Añadir</button>
+              <button class="carbutton add-to-cart" data-name="Black Shirt" data-price="34.99">Añadir</button>
             </div>
           </div>
 
@@ -99,7 +102,7 @@
             </div>
             <div class="buttonp">
               <button class="viewbutton">Ver</button>
-              <button class="carbutton">Añadir</button>
+              <button class="carbutton add-to-cart" data-name="Black Shirt Premium" data-price="39.99">Añadir</button>
             </div>
           </div>
 
@@ -117,7 +120,7 @@
             </div>
             <div class="buttonp">
               <button class="viewbutton">Ver</button>
-              <button class="carbutton">Añadir</button>
+              <button class="carbutton add-to-cart" data-name="Black Shirt Classic" data-price="32.99">Añadir</button>
             </div>
           </div>
         </div>
@@ -136,7 +139,7 @@
             </div>
             <div class="buttonp">
               <button class="viewbutton">Ver</button>
-              <button class="carbutton">Añadir</button>
+              <button class="carbutton add-to-cart" data-name="Black Short" data-price="24.99">Añadir</button>
             </div>
           </div>
 
@@ -150,7 +153,7 @@
             </div>
             <div class="buttonp">
               <button class="viewbutton">Ver</button>
-              <button class="carbutton">Añadir</button>
+              <button class="carbutton add-to-cart" data-name="Black Short Lines" data-price="27.99">Añadir</button>
             </div>
           </div>
 
@@ -164,7 +167,7 @@
             </div>
             <div class="buttonp">
               <button class="viewbutton">Ver</button>
-              <button class="carbutton">Añadir</button>
+              <button class="carbutton add-to-cart" data-name="Black Short Premium" data-price="29.99">Añadir</button>
             </div>
           </div>
 
@@ -182,7 +185,7 @@
             </div>
             <div class="buttonp">
               <button class="viewbutton">Ver</button>
-              <button class="carbutton">Añadir</button>
+              <button class="carbutton add-to-cart" data-name="Gray Short" data-price="26.99">Añadir</button>
             </div>
           </div>
         </div>
@@ -190,6 +193,16 @@
 
       <footer class="footer"><p>Designed by MATTIEL</p></footer>
     </div>
+
+    <div class="overlay" id="overlay"></div>
+    <aside class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+        <h2>Carrito</h2>
+        <button id="close-cart">✖</button>
+    </div>
+    <ul id="cart-items"></ul>
+    <h3>Total: $<span id="cart-total">0</span></h3>
+</aside>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

@@ -50,4 +50,66 @@ prev.addEventListener("click", () => {
 });
 
 // Inicializar
-updateCarousel(); 
+updateCarousel();
+
+// ============ CARRITO ============
+
+const openCart = document.getElementById("open-cart");
+const closeCart = document.getElementById("close-cart");
+const cartPanel = document.getElementById("cart-panel");
+const overlay = document.getElementById("overlay");
+
+const cartItems = document.getElementById("cart-items");
+const cartCount = document.getElementById("cart-count");
+const cartTotal = document.getElementById("cart-total");
+
+const addButtons = document.querySelectorAll(".add-to-cart");
+
+let cart = [];
+
+function renderCart(){
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - $${item.price}`;
+        cartItems.appendChild(li);
+        total += item.price;
+    });
+
+    cartCount.textContent = cart.length;
+    cartTotal.textContent = total.toFixed(2);
+}
+
+// Abrir carrito
+openCart.addEventListener("click", () => {
+    cartPanel.classList.add("active");
+    overlay.classList.add("active");
+});
+
+// Cerrar carrito
+closeCart.addEventListener("click", () => {
+    cartPanel.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
+overlay.addEventListener("click", () => {
+    cartPanel.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
+// Agregar al carrito
+addButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        const name = e.target.dataset.name;
+        const price = Number(e.target.dataset.price);
+
+        cart.push({
+            name,
+            price
+        });
+
+        renderCart();
+    });
+});
