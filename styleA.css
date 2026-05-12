@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 
 *{
     margin: 0;
@@ -149,12 +152,25 @@ body{
     background-color: #d7d7d7;
     box-shadow:
     0px 4px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+
+.text-container:hover{
+    transform: translateY(-8px);
+    transform: translateY(-8px) !important;
 }
 
 .imagei{
     border-radius: 10px;
     box-shadow:
     0px 4px 20px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.imagei:hover{
+    transform: translateY(-8px);
 }
 
 .productos{
@@ -173,6 +189,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 2.19rem;
+    
 }
 
 .card{
@@ -186,7 +203,12 @@ body{
   min-height: 180px;
   box-sizing: border-box;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-  transition: 0.3s;
+  transition: transform 0.3s ease;
+  transform: translateY(0);
+}
+
+.card:hover{
+    transform: translateY(-8px) !important;
 }
 
 .imagep{
@@ -231,7 +253,7 @@ body{
     border: solid 2px;
     border-color: rgb(255, 255, 255);
     border-radius: 5px;
-    background-color: rgb(10, 10, 182);
+    background-color: rgb(4, 4, 141);
 }
 
 .viewbutton:hover{
@@ -248,7 +270,7 @@ body{
     border: solid 3px;
     border-color: rgb(255, 255, 255);
     border-radius: 5px;
-    background-color: rgb(15, 149, 0);
+    background-color: rgb(11, 103, 0);
 }
 
 .carbutton:hover{
