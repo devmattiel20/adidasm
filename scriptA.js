@@ -52,6 +52,45 @@ prev.addEventListener("click", () => {
 // Inicializar
 updateCarousel();
 
+// ============ CARRUSELES DE PRODUCTOS ============
+
+function createProductCarousel(containerId, prevBtnId, nextBtnId) {
+    const container = document.getElementById(containerId);
+    const prevBtn = document.getElementById(prevBtnId);
+    const nextBtn = document.getElementById(nextBtnId);
+    
+    if (!container || !prevBtn || !nextBtn) return;
+    
+    const cards = container.querySelectorAll('.card');
+    let currentIndex = 0;
+    const cardWidth = 250; // ancho de la tarjeta + gap
+    const visibleCards = 3; // cantidad de tarjetas visibles
+    const maxIndex = Math.max(0, cards.length - visibleCards);
+    
+    function updateCarouselProducts() {
+        const offset = -currentIndex * cardWidth;
+        container.style.transform = `translateX(${offset}px)`;
+    }
+    
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarouselProducts();
+        }
+    });
+    
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarouselProducts();
+        }
+    });
+}
+
+// Inicializar carruseles de productos
+createProductCarousel('carousel-shirts', 'prev-shirts', 'next-shirts');
+createProductCarousel('carousel-shorts', 'prev-shorts', 'next-shorts');
+
 // ============ CARRITO ============
 
 const openCart = document.getElementById("open-cart");
@@ -112,4 +151,44 @@ addButtons.forEach((button) => {
 
         renderCart();
     });
+});
+
+// ============ MODAL DE PRODUCTOS ============
+
+const modalOverlay = document.getElementById("modal-overlay");
+const modalImage = document.getElementById("modal-image");
+const modalClose = document.getElementById("modal-close");
+const viewButtons = document.querySelectorAll(".viewbutton");
+
+// Abrir modal con imagen del producto
+viewButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        // Encontrar la imagen del producto en la tarjeta padre
+        const card = e.target.closest(".card");
+        const productImage = card.querySelector(".foto");
+        
+        if (productImage) {
+            modalImage.src = productImage.src;
+            modalOverlay.classList.add("active");
+        }
+    });
+});
+
+// Cerrar modal
+modalClose.addEventListener("click", () => {
+    modalOverlay.classList.remove("active");
+});
+
+// Cerrar modal al hacer clic en el overlay
+modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) {
+        modalOverlay.classList.remove("active");
+    }
+});
+
+// Cerrar modal con tecla ESC
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        modalOverlay.classList.remove("active");
+    }
 });
