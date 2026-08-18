@@ -63,8 +63,8 @@ function createProductCarousel(containerId, prevBtnId, nextBtnId) {
     
     const cards = container.querySelectorAll('.card');
     let currentIndex = 0;
-    const cardWidth = 250; // ancho de la tarjeta + gap
-    const visibleCards = 3; // cantidad de tarjetas visibles
+    const cardWidth = 180; // ancho de la tarjeta + gap
+    const visibleCards = 2; // cantidad de tarjetas visibles
     const maxIndex = Math.max(0, cards.length - visibleCards);
     
     function updateCarouselProducts() {
@@ -93,41 +93,159 @@ createProductCarousel('carousel-shorts', 'prev-shorts', 'next-shorts');
 
 // ============ CARRITO ============
 
+// 1) Obtenemos los elementos del DOM que vamos a manipular.
 const openCart = document.getElementById("open-cart");
 const closeCart = document.getElementById("close-cart");
+const clearCartBtn = document.getElementById("clear-cart");
+const checkoutCartBtn = document.getElementById("checkout-cart");
 const cartPanel = document.getElementById("cart-panel");
 const overlay = document.getElementById("overlay");
+const toast = document.getElementById("toast");
 
 const cartItems = document.getElementById("cart-items");
 const cartCount = document.getElementById("cart-count");
 const cartTotal = document.getElementById("cart-total");
 
 const addButtons = document.querySelectorAll(".add-to-cart");
+const STORAGE_KEY = "adidasm-cart";
 
-let cart = [];
+// 2) Creamos la estructura del carrito como un array de objetos.
+// Cada producto tiene nombre, precio, imagen y cantidad.
+let cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
-function renderCart(){
-    cartItems.innerHTML = "";
-    let total = 0;
-
-    cart.forEach((item) => {
-        const li = document.createElement("li");
-        li.textContent = `${item.name} - $${item.price}`;
-        cartItems.appendChild(li);
-        total += item.price;
-    });
-
-    cartCount.textContent = cart.length;
-    cartTotal.textContent = total.toFixed(2);
+// 3) Guardamos los cambios en localStorage para que el carrito no se pierda al recargar.
+function saveCart() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
 }
 
-// Abrir carrito
+// 4) Mostramos un mensaje flotante cuando agregan un producto.
+function showToast(message) {
+    if (!toast) return;
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    clearTimeout(showToast.timeoutId);
+    showToast.timeoutId = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 1800);
+}
+
+// 5) Tomamos la info del producto desde la card que disparó el click.
+function getProductFromButton(button) {
+    const card = button.closest(".card");
+    const image = card?.querySelector(".foto")?.src || "";
+
+    return {
+        name: button.dataset.name,
+        price: Number(button.dataset.price),
+        image
+    };
+}
+
+// 6) Calculamos la cantidad total de productos y el total a pagar.
+function updateCartSummary() {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    cartCount.textContent = totalItems;
+    cartTotal.textContent = totalPrice.toFixed(2);
+    saveCart();
+}
+
+// 7) Dibujamos cada producto dentro del panel del carrito.
+function renderCart() {
+    cartItems.innerHTML = "";
+
+    if (!cart.length) {
+        const emptyItem = document.createElement("li");
+        emptyItem.className = "empty-cart";
+        emptyItem.textContent = "Tu carrito está vacío.";
+        cartItems.appendChild(emptyItem);
+        updateCartSummary();
+        return;
+    }
+
+    cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.className = "cart-item";
+
+        const subtotal = item.price * item.quantity;
+
+        li.innerHTML = `
+            <div class="cart-item-image">
+                <img src="${item.image}" alt="${item.name}" />
+            </div>
+            <div class="cart-item-info">
+                <h4>${item.name}</h4>
+                <p>$${item.price.toFixed(2)} c/u</p>
+                <div class="cart-item-controls">
+                    <button class="qty-btn decrease" data-index="${index}" aria-label="Disminuir cantidad">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="qty-btn increase" data-index="${index}" aria-label="Aumentar cantidad">+</button>
+                </div>
+            </div>
+            <div class="cart-item-actions">
+                <strong>$${subtotal.toFixed(2)}</strong>
+                <button class="remove-item" data-index="${index}">Quitar</button>
+            </div>
+        `;
+
+        cartItems.appendChild(li);
+    });
+
+    // 8) Asignamos eventos a los botones de +, - y quitar.
+    document.querySelectorAll(".increase").forEach((button) => {
+        button.addEventListener("click", (e) => {
+            const index = Number(e.currentTarget.dataset.index);
+            cart[index].quantity += 1;
+            renderCart();
+        });
+    });
+
+    document.querySelectorAll(".decrease").forEach((button) => {
+        button.addEventListener("click", (e) => {
+            const index = Number(e.currentTarget.dataset.index);
+            if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1;
+            } else {
+                cart.splice(index, 1);
+            }
+            renderCart();
+        });
+    });
+
+    document.querySelectorAll(".remove-item").forEach((button) => {
+        button.addEventListener("click", (e) => {
+            const index = Number(e.currentTarget.dataset.index);
+            cart.splice(index, 1);
+            renderCart();
+        });
+    });
+
+    updateCartSummary();
+}
+
+// 9) Añadimos un producto al carrito o aumentamos su cantidad si ya existe.
+function addProductToCart(product) {
+    const itemExists = cart.find((item) => item.name === product.name);
+
+    if (itemExists) {
+        itemExists.quantity += 1;
+    } else {
+        cart.push({ ...product, quantity: 1 });
+    }
+
+    renderCart();
+    showToast(`${product.name} agregado al carrito`);
+}
+
+// 10) Abrimos y cerramos el panel del carrito.
 openCart.addEventListener("click", () => {
     cartPanel.classList.add("active");
     overlay.classList.add("active");
 });
 
-// Cerrar carrito
 closeCart.addEventListener("click", () => {
     cartPanel.classList.remove("active");
     overlay.classList.remove("active");
@@ -138,20 +256,41 @@ overlay.addEventListener("click", () => {
     overlay.classList.remove("active");
 });
 
-// Agregar al carrito
+// 11) Vaciar carrito por completo.
+clearCartBtn.addEventListener("click", () => {
+    cart = [];
+    renderCart();
+    showToast("Carrito vacío");
+});
+
+// 12) Botón de compra: recibe la lista de productos, calcula total y limpia el carrito.
+checkoutCartBtn.addEventListener("click", () => {
+    if (!cart.length) {
+        showToast("No hay productos en el carrito");
+        return;
+    }
+
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const resumen = cart
+        .map((item) => `${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`)
+        .join("\n");
+
+    
+    cart = [];
+    renderCart();
+    showToast("Compra realizada");
+});
+
+// 13) Evento de cada botón “Añadir”.
 addButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
-        const name = e.target.dataset.name;
-        const price = Number(e.target.dataset.price);
-
-        cart.push({
-            name,
-            price
-        });
-
-        renderCart();
+        const product = getProductFromButton(e.currentTarget);
+        addProductToCart(product);
     });
 });
+
+// 14) Al cargar la página, se restauran los productos guardados.
+renderCart();
 
 // ============ MODAL DE PRODUCTOS ============
 
