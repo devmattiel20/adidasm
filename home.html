@@ -14,19 +14,20 @@
   </head>
   <body>
     <div class="container">
+      <div id="inicio"></div>
+      <div class="anuncio">prendas de camisetas en oferta</div>
       <nav class="navbar">
         <div class="logo"><img src="./images/logoMain.png" width="80px" /></div>
-
         <ul class="menu">
-          <li>Productos</li>
-          <li>Contacto</li>
-          <li>tiendas</li>
+          <li class="lista"><a href="#inicio">inicio</a></li>
+          <li class="lista"><a href="#informacioon">informacion</a></li>
+          <li class="lista"><a href="#productos">productos</a></li>
         </ul>
         <button class="cart-btn" id="open-cart">
             🛒 <span id="cart-count">0</span>
         </button>
       </nav>
-
+      
       <section class="carousel">
         <button class="prev">❮</button>
 
@@ -39,33 +40,46 @@
         </div>
 
         <button class="next">❯</button>
+         
       </section>
 
-      <section class="informacion">
-        <div class="text-container " data-aos="fade-right">
+<!--INFORMACION--->
+
+
+     <div id="informacioon"></div>
+      <div class="info-container"><span class="linea">Tu mejor linea Fitness</span>
+      <section class="informacion"> <p></p>
+        <div  class="text-container " data-aos="fade-right">
           <h1 class="titlep">Adidas eficient</h1>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit
             quo et amet voluptas distinctio ipsum, praesentium saepe repellendus
-            suscipit sapiente dolorum reprehenderit minima nobis a. Soluta unde
-            commodi vel reiciendis!
-          </p>
+           
         </div>
-        <div class="info-image" data-aos="fade-up">
-          <img class="imagei" src="./images/InfoModel.jpg" width="350px" />
+        <div class="info-imagelittle" data-aos="fade-up">
+          <img class="imagei" src="./images/imgOne.jpeg" width="260px" />
+        </div>
+        <div class="info-imagebig" data-aos="fade-up">
+          <img class="imagei" src="./images/imgTwo.jpeg" width="350px" />
         </div>
       </section>
+      </div>
 
+      
+      <div  class="banner"> <img src="./images/banner.jpg"  height="200px" width="100%" ></div>
+      <div  id="productos" class="i"></div>
       <section class="productos">
+        
+
         <!-----CAMISETAS----->
-        <h1 class="titlepr">Camisetas</h1>
+        <h1  class="titlepr">Camisetas</h1>
         <div class="carousel-productos">
           <button class="prev-products" id="prev-shirts">❮</button>
           <div class="carousel-wrapper-productos">
             <div class="carousel-container-productos" id="carousel-shirts">
               <div class="card" data-aos="fade-down">
                 <div class="imagep">
-                  <img class="foto" src="./images/camisetaOne.avif" width="180px" />
+                  <img class="foto" src="./images/camisetaOne.avif" width="100%" />
                 </div> 
                 <div class="textp">
                   <h3>White Shirt</h3>

@@ -12,6 +12,16 @@ body{
     font-family: "Poppins", sans-serif;
     background-color: rgb(228, 231, 234);
 }
+
+.anuncio{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
 .navbar{
     position: sticky;
     top: 0;
@@ -34,13 +44,31 @@ body{
 
 
 .menu{
+    margin-right: 20px;
     display: flex;
+    justify-content:flex-end;
     list-style: none;
     gap: 1.5rem;
+    margin-left: auto;
+    color: black;  
+
 }
 
-.menu li{
-    list-style: none;
+.menu a {
+    color: black;
+    text-decoration: none;
+}
+
+.lista{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1.1rem;  
+}
+
+.menu li:hover{
+    cursor: pointer;
+    color: rgb(2, 255, 158);
 }
 
 .carousel{
@@ -125,8 +153,31 @@ body{
     background-color: rgba(0,0,0,0.8);
 }
 
+.info-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    
+    
+    padding: 30px;
+    display: flex;
+ 
+    background-color: rgb(216, 149, 149);
+ 
+}
+
+.info-container span{
+    margin: 0px;
+    padding: 0px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+}
 
 .informacion{
+    margin-top: 110px;
+    margin-bottom: 110px;
     margin-left: 90px;
     margin-right: 90px;
     padding: 30px;
@@ -137,10 +188,8 @@ body{
     0px 4px 20px rgba(0,0,0,0.4);
 }
 
-.titlepr{
-    margin: 30px;
-    width: 190px;
-    border-radius: 8px; 
+.titlep{
+    margin-bottom: 15px;
     }
     
 
@@ -161,6 +210,10 @@ body{
     transform: translateY(-8px) !important;
 }
 
+.info-imagelittle{
+  margin-right: 22px;
+}
+
 .imagei{
     border-radius: 10px;
     box-shadow:
@@ -170,6 +223,13 @@ body{
 
 .imagei:hover{
     transform: translateY(-8px);
+}
+
+
+.banner{
+    height: 100px;
+    display: flex;
+    
 }
 
 .productos{
