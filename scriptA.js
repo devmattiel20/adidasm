@@ -5,11 +5,11 @@ const next = document.querySelector(".next");
 const prev = document.querySelector(".prev");
 
 let index = 0; // posicion del slide
+let carouselTimer;
 
 function updateCarousel(){ // hace que sea dinamico y interactivo
 
-    container.style.transform =    // modifica CSS desde JavaScript
-    `translateX(-${index * 1100}px)`; // mueve hacia la izquierda calculando la posicion * ancho del slide
+    container.style.transform = `translateX(-${index * 100}%)`;
 
     // Agregar efectos 3D a las slides
     slides.forEach((slide, i) => {
@@ -25,32 +25,82 @@ function updateCarousel(){ // hace que sea dinamico y interactivo
 
 }
 
+function goToNextSlide() {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+}
+
+function startCarouselRotation() {
+    clearInterval(carouselTimer);
+    carouselTimer = setInterval(goToNextSlide, 4000);
+}
+
 next.addEventListener("click", () => { //evento del boton
 
-    index++; // cada click aumenta la posicion en 1
-
-    if(index > 2){
-        index = 0;
-    }
-
-    updateCarousel();
+    goToNextSlide();
+    startCarouselRotation();
 
 });
 
 prev.addEventListener("click", () => {
 
-    index--;
-
-    if(index < 0){
-        index = 2;
-    }
-
+    index = (index - 1 + slides.length) % slides.length;
     updateCarousel();
+    startCarouselRotation();
 
 });
 
 // Inicializar
 updateCarousel();
+const mainCarousel = document.querySelector(".carousel");
+mainCarousel.addEventListener("mouseenter", () => clearInterval(carouselTimer));
+mainCarousel.addEventListener("mouseleave", startCarouselRotation);
+mainCarousel.addEventListener("focusin", () => clearInterval(carouselTimer));
+mainCarousel.addEventListener("focusout", startCarouselRotation);
+startCarouselRotation();
+
+// ============ ANUNCIOS ============
+
+const announcement = document.querySelector(".anuncio");
+const announcementTrack = document.querySelector(".anuncio-track");
+const announcementSlides = document.querySelectorAll(".anuncio-slide");
+const announcementDots = document.querySelectorAll(".anuncio-dot");
+let announcementIndex = 0;
+let announcementTimer;
+
+function updateAnnouncement(nextIndex) {
+    announcementIndex = nextIndex;
+    announcementTrack.style.transform = `translateY(-${announcementIndex * 100}%)`;
+
+    announcementDots.forEach((dot, index) => {
+        const isActive = index === announcementIndex;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-selected", String(isActive));
+    });
+}
+
+function startAnnouncementRotation() {
+    clearInterval(announcementTimer);
+    announcementTimer = setInterval(() => {
+        updateAnnouncement((announcementIndex + 1) % announcementSlides.length);
+    }, 4500);
+}
+
+if (announcement && announcementTrack && announcementSlides.length) {
+    announcementDots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            updateAnnouncement(index);
+            startAnnouncementRotation();
+        });
+    });
+
+    announcement.addEventListener("mouseenter", () => clearInterval(announcementTimer));
+    announcement.addEventListener("mouseleave", startAnnouncementRotation);
+    announcement.addEventListener("focusin", () => clearInterval(announcementTimer));
+    announcement.addEventListener("focusout", startAnnouncementRotation);
+    updateAnnouncement(0);
+    startAnnouncementRotation();
+}
 
 // ============ CARRUSELES DE PRODUCTOS ============
 

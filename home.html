@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AdidasM</title>
+    <link rel="icon" type="image/png" href="./images/logo.png"/>
     <link rel="stylesheet" href="./styleA.css"/>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link
@@ -15,9 +16,21 @@
   <body>
     <div class="container">
       <div id="inicio"></div>
-      <div class="anuncio">prendas de camisetas en oferta</div>
+      <section class="anuncio" aria-label="Promociones de M Sports">
+        <div class="anuncio-track">
+          <p class="anuncio-slide is-active">Camisetas seleccionadas con hasta 30% de descuento</p>
+          <p class="anuncio-slide">Envío gratis en pedidos superiores a $150.000</p>
+          <p class="anuncio-slide">Nuevo drop de ropa fitness: entrena con tu mejor versión</p>
+        </div>
+        <div class="anuncio-dots" role="tablist" aria-label="Seleccionar anuncio">
+          <button class="anuncio-dot is-active" type="button" role="tab" aria-label="Ver anuncio 1" aria-selected="true"></button>
+          <button class="anuncio-dot" type="button" role="tab" aria-label="Ver anuncio 2" aria-selected="false"></button>
+          <button class="anuncio-dot" type="button" role="tab" aria-label="Ver anuncio 3" aria-selected="false"></button>
+        </div>
+      </section>
       <nav class="navbar">
-        <div class="logo"><img src="./images/logoMain.png" width="80px" /></div>
+        <div class="logo"><img src="./images/Logo (2).png" width="90px" /></div>
+         <h1 class="logo-text"> <span class="m">M</span>  Sports</h1>
         <ul class="menu">
           <li class="lista"><a href="#inicio">inicio</a></li>
           <li class="lista"><a href="#informacioon">informacion</a></li>
@@ -45,11 +58,11 @@
 
 <!--INFORMACION--->
 
-
+      
      <div id="informacioon"></div>
-      <div class="info-container"><span class="linea">Tu mejor linea Fitness</span>
-      <section class="informacion"> <p></p>
-        <div  class="text-container " data-aos="fade-right">
+      <div class="info-container"><span class="linea">Tu mejor linea Fitness</span> <p> aaaaaaaaaaa</p>
+      <section class="informacion">
+        <div  class="text-container "data-aos="fade-right">
           <h1 class="titlep">Adidas eficient</h1>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit
@@ -267,6 +280,60 @@
                   <button class="carbutton add-to-cart" data-name="Gray Short" data-price="26.99">Añadir</button>
                 </div>
               </div>
+
+              <div class="card" data-aos="fade-down">
+                <div class="imagep">
+                  <img
+                    class="foto"
+                    src="./images/shortFour.avif"
+                    width="180px"
+                  />
+                </div>
+                <div class="textp">
+                  <h3>Gray Short</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+                <div class="buttonp">
+                  <button class="viewbutton">Ver</button>
+                  <button class="carbutton add-to-cart" data-name="Gray Short" data-price="26.99">Añadir</button>
+                </div>
+              </div>
+              
+              <div class="card" data-aos="fade-down">
+                <div class="imagep">
+                  <img
+                    class="foto"
+                    src="./images/shortFour.avif"
+                    width="180px"
+                  />
+                </div>
+                <div class="textp">
+                  <h3>Gray Short</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+                <div class="buttonp">
+                  <button class="viewbutton">Ver</button>
+                  <button class="carbutton add-to-cart" data-name="Gray Short" data-price="26.99">Añadir</button>
+                </div>
+              </div>
+
+              <div class="card" data-aos="fade-down">
+                <div class="imagep">
+                  <img
+                    class="foto"
+                    src="./images/shortFour.avif"
+                    width="180px"
+                  />
+                </div>
+                <div class="textp">
+                  <h3>Gray Short</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+                <div class="buttonp">
+                  <button class="viewbutton">Ver</button>
+                  <button class="carbutton add-to-cart" data-name="Gray Short" data-price="26.99">Añadir</button>
+                </div>
+              </div>
             </div>
           </div>
           <button class="next-products" id="next-shorts">❯</button>
@@ -306,7 +373,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>© 2026 Mi Empresa. Todos los derechos reservados.</p>
+        <p>© 2026 Matthew Bettin. Todos los derechos reservados.</p>
     </div>
 </footer>
 
