@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AdidasM</title>
+    <title>MSports</title>
     <link rel="icon" type="image/png" href="./images/logo.png" />
-    <link rel="stylesheet" href="./styleA.css" />
+    <link rel="stylesheet" href="./style.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
@@ -15,7 +15,9 @@
   <body>
     <div class="container">
       <div id="inicio"></div>
-      <section class="anuncio" aria-label="Promociones de M Sports">
+
+      <!---ANUNCIO--->
+        <section class="anuncio" aria-label="Promociones de M Sports">
         <div class="anuncio-track">
           <p class="anuncio-slide is-active">
             Camisetas seleccionadas con hasta 30% de descuento
@@ -55,11 +57,18 @@
           ></button>
         </div>
       </section>
+
+      <!---NAVBAR--->
       <nav class="navbar">
         <div class="logo-container">
-          <img id="navbar-logo" src="./images/logoLight.png" width="90" alt="Logo de M Sports" />
+          <img
+            id="navbar-logo"
+            src="./images/logoLight.png"
+            width="90"
+            alt="Logo de M Sports"
+          />
         </div>
-        <h1 class="logo-text"><span class="m">M</span> Sports</h1>
+        <h1 class="logo-text"><span class="m">M</span>Sports</h1>
         <ul class="menu">
           <li class="lista"><a href="#inicio">Inicio</a></li>
           <li class="lista"><a href="#info">Información</a></li>
@@ -79,6 +88,7 @@
         </button>
       </nav>
 
+      <!---CARRUSEL--->
       <section class="carousel">
         <button class="prev">❮</button>
 
@@ -97,11 +107,9 @@
         class="mobile-hero"
         src="./images/slideOne.jpg"
         alt="Colección M Sports"
-        
       />
-
+      
       <!--INFORMACION--->
-
       <div id="info"></div>
       <div class="info-container">
         <span class="linea">Tu mejor linea Fitness</span>
@@ -125,17 +133,17 @@
         </section>
       </div>
 
+      <!--BANNER-->
       <div class="banner">
         <picture>
-          <source
-            media="(max-width: 768px)"
-            srcset="./images/bannerM.jpg"
-          />
+          <source media="(max-width: 768px)" srcset="./images/bannerM.jpg" />
           <img src="./images/banner.jpg" alt="Promoción M Sports" />
         </picture>
-        
       </div>
-      <div id="productos" class="i"></div>    
+
+      <div id="productos" class="i"></div>
+      
+      <!--PRODUCTOS--->
       <section class="productos">
         <!-----CAMISETAS----->
         <h1 class="titlepr">Camisetas</h1>
@@ -328,9 +336,7 @@
           </div>
           <button class="next-products" id="next-shirts">❯</button>
         </div>
-
-        <!--PANTALONES-->
-
+        <!--SHORTS-->
         <h1 class="titlepr">Shorts</h1>
         <div class="carousel-productos">
           <button class="prev-products" id="prev-shorts">❮</button>
@@ -523,12 +529,13 @@
         </div>
       </section>
 
+      <!--FOOTER-->
       <footer class="footer">
         <div class="footer-container">
           <div class="footer-column">
             <h3>Sobre nosotros</h3>
             <p>
-              Creo productos y experiencias digitales pensadas para ofrecer
+              Vendemos productos y experiencias en Deportes pensadas para ofrecer
               calidad y simplicidad.
             </p>
           </div>
@@ -536,7 +543,7 @@
           <div class="footer-column">
             <h3>Contacto</h3>
             <ul>
-              <li>📞 +1 234 567 8901</li>
+              <li>📞 +1 234 567 89</li>
               <li>✉️ contacto@ejemplo.com</li>
               <li>📍 Colombia</li>
             </ul>
@@ -557,6 +564,7 @@
       </footer>
     </div>
 
+    <!-- Overlay y panel del carrito -->
     <div class="overlay" id="overlay"></div>
     <div class="toast" id="toast" aria-live="polite"></div>
     <aside class="cart-panel" id="cart-panel">
@@ -588,6 +596,6 @@
     <script>
       AOS.init();
     </script>
-    <script src="./scriptA.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
