@@ -62,7 +62,7 @@
         <h1 class="logo-text"><span class="m">M</span> Sports</h1>
         <ul class="menu">
           <li class="lista"><a href="#inicio">Inicio</a></li>
-          <li class="lista"><a href="#informacioon">Información</a></li>
+          <li class="lista"><a href="#info">Información</a></li>
           <li class="lista"><a href="#productos">Productos</a></li>
         </ul>
         <button
@@ -97,11 +97,12 @@
         class="mobile-hero"
         src="./images/slideOne.jpg"
         alt="Colección M Sports"
+        
       />
 
       <!--INFORMACION--->
 
-      <div id="informacioon"></div>
+      <div id="info"></div>
       <div class="info-container">
         <span class="linea">Tu mejor linea Fitness</span>
         <p class="description">Apoyo para tus retos</p>
@@ -125,9 +126,16 @@
       </div>
 
       <div class="banner">
-        <img src="./images/banner.jpg" alt="Promoción M Sports" />
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcset="./images/bannerM.jpg"
+          />
+          <img src="./images/banner.jpg" alt="Promoción M Sports" />
+        </picture>
+        
       </div>
-      <div id="productos" class="i"></div>
+      <div id="productos" class="i"></div>    
       <section class="productos">
         <!-----CAMISETAS----->
         <h1 class="titlepr">Camisetas</h1>
