@@ -7,7 +7,8 @@ const prev = document.querySelector(".prev");
 let index = 0; // posicion del slide
 let carouselTimer;
 
-function updateCarousel(){ // hace que sea dinamico y interactivo
+// Actualiza la posición y las clases visuales del carrusel principal.
+function updateCarousel(){
 
     container.style.transform = `translateX(-${index * 100}%)`;
 
@@ -25,11 +26,13 @@ function updateCarousel(){ // hace que sea dinamico y interactivo
 
 }
 
+// Avanza una posición y actualiza el carrusel.
 function goToNextSlide() {
     index = (index + 1) % slides.length;
     updateCarousel();
 }
 
+// Inicia la rotación automática del carrusel.
 function startCarouselRotation() {
     clearInterval(carouselTimer);
     carouselTimer = setInterval(goToNextSlide, 4000);
@@ -68,6 +71,7 @@ const announcementDots = document.querySelectorAll(".anuncio-dot");
 let announcementIndex = 0;
 let announcementTimer;
 
+// Muestra el anuncio seleccionado y sincroniza sus indicadores.
 function updateAnnouncement(nextIndex) {
     announcementIndex = nextIndex;
     announcementTrack.style.transform = `translateY(-${announcementIndex * 100}%)`;
@@ -79,6 +83,7 @@ function updateAnnouncement(nextIndex) {
     });
 }
 
+// Programa el cambio automático de anuncios.
 function startAnnouncementRotation() {
     clearInterval(announcementTimer);
     announcementTimer = setInterval(() => {
@@ -104,6 +109,7 @@ if (announcement && announcementTrack && announcementSlides.length) {
 
 // ============ CARRUSELES DE PRODUCTOS ============
 
+// Configura los controles de un carrusel de productos.
 function createProductCarousel(containerId, prevBtnId, nextBtnId) {
     const container = document.getElementById(containerId);
     const prevBtn = document.getElementById(prevBtnId);
@@ -117,6 +123,7 @@ function createProductCarousel(containerId, prevBtnId, nextBtnId) {
     const visibleCards = 2; // cantidad de tarjetas visibles
     const maxIndex = Math.max(0, cards.length - visibleCards);
     
+    // Mueve las tarjetas según el índice actual.
     function updateCarouselProducts() {
         const offset = -currentIndex * cardWidth;
         container.style.transform = `translateX(${offset}px)`;
@@ -159,16 +166,60 @@ const cartTotal = document.getElementById("cart-total");
 const addButtons = document.querySelectorAll(".add-to-cart");
 const STORAGE_KEY = "adidasm-cart";
 
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+const navbarLogo = document.getElementById("navbar-logo");
+
+// Cambia el logo para mantener el contraste con el fondo actual.
+function updateNavbarLogo(isDarkMode) {
+    if (!navbarLogo) return;
+
+    navbarLogo.src = isDarkMode ? "./images/logoDark.png" : "./images/logoLight.png";
+}
+
+if (darkModeToggle) {
+    darkModeToggle.addEventListener("click", () => {
+        const isDarkMode = document.body.classList.toggle("dark-mode");
+        
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        const infoContainer = document.querySelector('.info-container');
+        if (infoContainer) {
+            infoContainer.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        const productos = document.querySelector('.productos');
+        if (productos) {
+            productos.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        const cartPanel = document.getElementById('cart-panel');
+        if (cartPanel) {
+            cartPanel.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        updateNavbarLogo(isDarkMode);
+
+        darkModeToggle.setAttribute("aria-pressed", String(isDarkMode));
+        darkModeToggle.setAttribute("aria-label", isDarkMode ? "Desactivar modo oscuro" : "Activar modo oscuro");
+        darkModeToggle.querySelector("span").textContent = isDarkMode ? "☀" : "☾";
+    });
+}
+
 // 2) Creamos la estructura del carrito como un array de objetos.
 // Cada producto tiene nombre, precio, imagen y cantidad.
 let cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
 // 3) Guardamos los cambios en localStorage para que el carrito no se pierda al recargar.
+// Guarda el carrito actual en el navegador.
 function saveCart() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
 }
 
 // 4) Mostramos un mensaje flotante cuando agregan un producto.
+// Muestra una notificación temporal al usuario.
 function showToast(message) {
     if (!toast) return;
 
@@ -182,6 +233,7 @@ function showToast(message) {
 }
 
 // 5) Tomamos la info del producto desde la card que disparó el click.
+// Extrae los datos del producto desde su botón de compra.
 function getProductFromButton(button) {
     const card = button.closest(".card");
     const image = card?.querySelector(".foto")?.src || "";
@@ -194,6 +246,7 @@ function getProductFromButton(button) {
 }
 
 // 6) Calculamos la cantidad total de productos y el total a pagar.
+// Recalcula cantidades, total y persistencia del carrito.
 function updateCartSummary() {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -204,6 +257,7 @@ function updateCartSummary() {
 }
 
 // 7) Dibujamos cada producto dentro del panel del carrito.
+// Dibuja el contenido actual del carrito y sus controles.
 function renderCart() {
     cartItems.innerHTML = "";
 
@@ -277,6 +331,7 @@ function renderCart() {
 }
 
 // 9) Añadimos un producto al carrito o aumentamos su cantidad si ya existe.
+// Añade un producto nuevo o incrementa su cantidad.
 function addProductToCart(product) {
     const itemExists = cart.find((item) => item.name === product.name);
 

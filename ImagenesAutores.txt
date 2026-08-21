@@ -1,3 +1,6 @@
 Foto de <a href="https://unsplash.com/es/@makomakt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">MakoMakt</a> en <a href="https://unsplash.com/es/fotos/un-hombre-y-una-mujer-de-pie-uno-al-lado-del-otro-_7C3AnUy2xg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 Foto de <a href="https://unsplash.com/es/@matt909?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alex Shaw</a> en <a href="https://unsplash.com/es/fotos/mujer-con-sujetador-deportivo-negro-y-leggings-negros-haciendo-yoga-UHBSbL-cY54?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 Foto de <a href="https://unsplash.com/es/@silverkblack?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vitaly Gariev</a> en <a href="https://unsplash.com/es/fotos/hombre-y-mujer-trotando-juntos-en-un-parque-2_k8XPnnXJQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+rgba(17, 17, 17, 0.8)
+rgb(17, 17, 17)

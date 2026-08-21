@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AdidasM</title>
-    <link rel="icon" type="image/png" href="./images/logo.png"/>
-    <link rel="stylesheet" href="./styleA.css"/>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./images/logo.png" />
+    <link rel="stylesheet" href="./styleA.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
-      
     />
   </head>
   <body>
@@ -18,29 +17,68 @@
       <div id="inicio"></div>
       <section class="anuncio" aria-label="Promociones de M Sports">
         <div class="anuncio-track">
-          <p class="anuncio-slide is-active">Camisetas seleccionadas con hasta 30% de descuento</p>
-          <p class="anuncio-slide">Envío gratis en pedidos superiores a $150.000</p>
-          <p class="anuncio-slide">Nuevo drop de ropa fitness: entrena con tu mejor versión</p>
+          <p class="anuncio-slide is-active">
+            Camisetas seleccionadas con hasta 30% de descuento
+          </p>
+          <p class="anuncio-slide">
+            Envío gratis en pedidos superiores a $150.000
+          </p>
+          <p class="anuncio-slide">
+            Nuevo drop de ropa fitness: entrena con tu mejor versión
+          </p>
         </div>
-        <div class="anuncio-dots" role="tablist" aria-label="Seleccionar anuncio">
-          <button class="anuncio-dot is-active" type="button" role="tab" aria-label="Ver anuncio 1" aria-selected="true"></button>
-          <button class="anuncio-dot" type="button" role="tab" aria-label="Ver anuncio 2" aria-selected="false"></button>
-          <button class="anuncio-dot" type="button" role="tab" aria-label="Ver anuncio 3" aria-selected="false"></button>
+        <div
+          class="anuncio-dots"
+          role="tablist"
+          aria-label="Seleccionar anuncio"
+        >
+          <button
+            class="anuncio-dot is-active"
+            type="button"
+            role="tab"
+            aria-label="Ver anuncio 1"
+            aria-selected="true"
+          ></button>
+          <button
+            class="anuncio-dot"
+            type="button"
+            role="tab"
+            aria-label="Ver anuncio 2"
+            aria-selected="false"
+          ></button>
+          <button
+            class="anuncio-dot"
+            type="button"
+            role="tab"
+            aria-label="Ver anuncio 3"
+            aria-selected="false"
+          ></button>
         </div>
       </section>
       <nav class="navbar">
-        <div class="logo"><img src="./images/Logo (2).png" width="90px" /></div>
-         <h1 class="logo-text"> <span class="m">M</span>  Sports</h1>
+        <div class="logo-container">
+          <img id="navbar-logo" src="./images/logoLight.png" width="90" alt="Logo de M Sports" />
+        </div>
+        <h1 class="logo-text"><span class="m">M</span> Sports</h1>
         <ul class="menu">
           <li class="lista"><a href="#inicio">Inicio</a></li>
           <li class="lista"><a href="#informacioon">Información</a></li>
           <li class="lista"><a href="#productos">Productos</a></li>
         </ul>
+        <button
+          class="dark-mode-btn"
+          id="dark-mode-toggle"
+          type="button"
+          aria-label="Activar modo oscuro"
+          aria-pressed="false"
+        >
+          <span aria-hidden="true">☾</span>
+        </button>
         <button class="cart-btn" id="open-cart">
-            🛒 <span id="cart-count">0</span>
+          🛒 <span id="cart-count">0</span>
         </button>
       </nav>
-      
+
       <section class="carousel">
         <button class="prev">❮</button>
 
@@ -53,70 +91,93 @@
         </div>
 
         <button class="next">❯</button>
-         
       </section>
 
-<!--INFORMACION--->
+      <!--INFORMACION--->
 
-      
-     <div id="informacioon"></div>
-      <div class="info-container"><span class="linea">Tu mejor linea Fitness</span>
-      <p>Apoyo para tus retos</p>
-      <section class="informacion">
-        <div  class="text-container "data-aos="fade-right">
-          <h1 class="titlep">¡Para servirte!</h1>
-          <p>
-            M sports te ofrece una amplia gama de ropa y accesorios de fitness para ayudarte a alcanzar tus metas. Desde camisetas transpirables hasta zapatillas de alto rendimiento, tenemos todo lo que necesitas para entrenar con estilo y comodidad.
-           
-        </div>
-        <div class="info-imagelittle" data-aos="fade-up">
-          <img class="imagei" src="./images/imgOne.jpeg" width="260px" />
-        </div>
-        <div class="info-imagebig" data-aos="fade-up">
-          <img class="imagei" src="./images/imgTwo.jpeg" width="350px" />
-        </div>
-      </section>
+      <div id="informacioon"></div>
+      <div class="info-container">
+        <span class="linea">Tu mejor linea Fitness</span>
+        <p class="description">Apoyo para tus retos</p>
+        <section class="informacion">
+          <div class="text-container" data-aos="fade-right">
+            <h1 class="titlep">¡Para servirte!</h1>
+            <p>
+              M sports te ofrece una amplia gama de ropa y accesorios de fitness
+              para ayudarte a alcanzar tus metas. Desde camisetas transpirables
+              hasta zapatillas de alto rendimiento, tenemos todo lo que
+              necesitas para entrenar con estilo y comodidad.
+            </p>
+          </div>
+          <div class="info-imagelittle" data-aos="fade-up">
+            <img class="imagei" src="./images/imgOne.jpeg" width="260px" />
+          </div>
+          <div class="info-imagebig" data-aos="fade-up">
+            <img class="imagei" src="./images/imgTwo.jpeg" width="350px" />
+          </div>
+        </section>
       </div>
 
-      
-      <div  class="banner"> <img src="./images/banner.jpg"  height="200px" width="100%" ></div>
-      <div  id="productos" class="i"></div>
+      <div class="banner">
+        <img src="./images/banner.jpg" height="200px" width="100%" />
+      </div>
+      <div id="productos" class="i"></div>
       <section class="productos">
-        
-
         <!-----CAMISETAS----->
-        <h1  class="titlepr">Camisetas</h1>
+        <h1 class="titlepr">Camisetas</h1>
         <div class="carousel-productos">
           <button class="prev-products" id="prev-shirts">❮</button>
           <div class="carousel-wrapper-productos">
             <div class="carousel-container-productos" id="carousel-shirts">
               <div class="card" data-aos="fade-down">
                 <div class="imagep">
-                  <img class="foto" src="./images/camisetaOne.avif" width="100%" />
-                </div> 
+                  <img
+                    class="foto"
+                    src="./images/camisetaOne.avif"
+                    width="100%"
+                  />
+                </div>
                 <div class="textp">
-                  <h3>Camiseta Blanca </h3>
-                  <p>Estilo claro para ti.</p><br>
+                  <h3>Camiseta Blanca</h3>
+                  <p>Estilo claro para ti.</p>
+                  <br />
                   <p>$29.99</p>
                 </div>
                 <div class="buttonp">
-                  <button class="viewbutton" > Ver</button>
-                  <button class="carbutton add-to-cart" data-name="White Shirt" data-price="29.99">Añadir</button>
+                  <button class="viewbutton">Ver</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="White Shirt"
+                    data-price="29.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
               <div class="card" data-aos="fade-down">
                 <div class="imagep">
-                  <img class="foto" src="./images/camisetaTwo.avif" width="180px" />
+                  <img
+                    class="foto"
+                    src="./images/camisetaTwo.avif"
+                    width="180px"
+                  />
                 </div>
                 <div class="textp">
                   <h3>camiseta negra</h3>
-                  <p>Estilo elegante para ti.</p><br>
+                  <p>Estilo elegante para ti.</p>
+                  <br />
                   <p>$34.99</p>
                 </div>
-                <div class="buttonp"> 
+                <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Black Shirt" data-price="34.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Black Shirt"
+                    data-price="34.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
@@ -129,13 +190,20 @@
                   />
                 </div>
                 <div class="textp">
-                  <h3>Sueter T2 </h3>
-                  <p>Estilo cómodo para ti.</p><br>
+                  <h3>Sueter T2</h3>
+                  <p>Estilo cómodo para ti.</p>
+                  <br />
                   <p>$39.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Black Shirt Premium" data-price="39.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Black Shirt Premium"
+                    data-price="39.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
@@ -149,16 +217,23 @@
                 </div>
                 <div class="textp">
                   <h3>Sueter Logo</h3>
-                  <p>Estilo moderno para ti.</p><br>
+                  <p>Estilo moderno para ti.</p>
+                  <br />
                   <p>$32.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Black Shirt Classic" data-price="32.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Black Shirt Classic"
+                    data-price="32.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
-                   <div class="card" data-aos="fade-down">
+              <div class="card" data-aos="fade-down">
                 <div class="imagep">
                   <img
                     class="foto"
@@ -168,16 +243,23 @@
                 </div>
                 <div class="textp">
                   <h3>Sueter Logo</h3>
-                  <p>Estilo moderno para ti.</p><br>
+                  <p>Estilo moderno para ti.</p>
+                  <br />
                   <p>$32.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Black Shirt Classic" data-price="32.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Black Shirt Classic"
+                    data-price="32.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
-                   <div class="card" data-aos="fade-down">
+              <div class="card" data-aos="fade-down">
                 <div class="imagep">
                   <img
                     class="foto"
@@ -187,16 +269,23 @@
                 </div>
                 <div class="textp">
                   <h3>Sueter Logo</h3>
-                  <p>Estilo moderno para ti.</p><br>
+                  <p>Estilo moderno para ti.</p>
+                  <br />
                   <p>$32.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Black Shirt Classic" data-price="32.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Black Shirt Classic"
+                    data-price="32.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
-                   <div class="card" data-aos="fade-down">
+              <div class="card" data-aos="fade-down">
                 <div class="imagep">
                   <img
                     class="foto"
@@ -206,16 +295,21 @@
                 </div>
                 <div class="textp">
                   <h3>Sueter Logo</h3>
-                  <p>Estilo moderno para ti.</p><br>
+                  <p>Estilo moderno para ti.</p>
+                  <br />
                   <p>$32.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Black Shirt Classic" data-price="32.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Black Shirt Classic"
+                    data-price="32.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
-
-              
             </div>
           </div>
           <button class="next-products" id="next-shirts">❯</button>
@@ -230,46 +324,79 @@
             <div class="carousel-container-productos" id="carousel-shorts">
               <div class="card" data-aos="fade-down">
                 <div class="imagep">
-                  <img class="foto" src="./images/shortOne.avif" width="180px" />
+                  <img
+                    class="foto"
+                    src="./images/shortOne.avif"
+                    width="180px"
+                  />
                 </div>
                 <div class="textp">
                   <h3>Short Negro</h3>
-                  <p>Fresco y comodo</p><br>
+                  <p>Fresco y comodo</p>
+                  <br />
                   <p>$24.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Black Short" data-price="24.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Black Short"
+                    data-price="24.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
               <div class="card" data-aos="fade-down">
                 <div class="imagep">
-                  <img class="foto" src="./images/shortTwo.avif" width="180px" />
+                  <img
+                    class="foto"
+                    src="./images/shortTwo.avif"
+                    width="180px"
+                  />
                 </div>
                 <div class="textp">
                   <h3>Short Lineado</h3>
-                  <p>Fresco y suave</p><br>
+                  <p>Fresco y suave</p>
+                  <br />
                   <p>$27.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Black Short Lines" data-price="27.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Black Short Lines"
+                    data-price="27.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
               <div class="card" data-aos="fade-down">
                 <div class="imagep">
-                  <img class="foto" src="./images/shortThree.avif" width="180px" />
+                  <img
+                    class="foto"
+                    src="./images/shortThree.avif"
+                    width="180px"
+                  />
                 </div>
                 <div class="textp">
                   <h3>Short Premium</h3>
-                  <p>Fresco y cómodo</p><br>
+                  <p>Fresco y cómodo</p>
+                  <br />
                   <p>$29.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Black Short Premium" data-price="29.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Black Short Premium"
+                    data-price="29.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
@@ -283,12 +410,19 @@
                 </div>
                 <div class="textp">
                   <h3>Short Gris</h3>
-                  <p>Fresco y moderno</p><br>
+                  <p>Fresco y moderno</p>
+                  <br />
                   <p>$26.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Gray Short" data-price="26.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Gray Short"
+                    data-price="26.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
@@ -302,31 +436,19 @@
                 </div>
                 <div class="textp">
                   <h3>Short Gris</h3>
-                  <p>Fresco y moderno</p><br>
+                  <p>Fresco y moderno</p>
+                  <br />
                   <p>$26.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Gray Short" data-price="26.99">Añadir</button>
-                </div>
-              </div>
-              
-              <div class="card" data-aos="fade-down">
-                <div class="imagep">
-                  <img
-                    class="foto"
-                    src="./images/shortFour.avif"
-                    width="180px"
-                  />
-                </div>
-                <div class="textp">
-                  <h3>Short Gris</h3>
-                  <p>Fresco y moderno</p><br>
-                  <p>$26.99</p>
-                </div>
-                <div class="buttonp">
-                  <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Gray Short" data-price="26.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Gray Short"
+                    data-price="26.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
 
@@ -340,12 +462,45 @@
                 </div>
                 <div class="textp">
                   <h3>Short Gris</h3>
-                  <p>Fresco y moderno</p><br>
+                  <p>Fresco y moderno</p>
+                  <br />
                   <p>$26.99</p>
                 </div>
                 <div class="buttonp">
                   <button class="viewbutton">Ver</button>
-                  <button class="carbutton add-to-cart" data-name="Gray Short" data-price="26.99">Añadir</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Gray Short"
+                    data-price="26.99"
+                  >
+                    Añadir
+                  </button>
+                </div>
+              </div>
+
+              <div class="card" data-aos="fade-down">
+                <div class="imagep">
+                  <img
+                    class="foto"
+                    src="./images/shortFour.avif"
+                    width="180px"
+                  />
+                </div>
+                <div class="textp">
+                  <h3>Short Gris</h3>
+                  <p>Fresco y moderno</p>
+                  <br />
+                  <p>$26.99</p>
+                </div>
+                <div class="buttonp">
+                  <button class="viewbutton">Ver</button>
+                  <button
+                    class="carbutton add-to-cart"
+                    data-name="Gray Short"
+                    data-price="26.99"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
             </div>
@@ -354,76 +509,70 @@
         </div>
       </section>
 
-      
-  
-<footer class="footer">
-    <div class="footer-container">
-
-        <div class="footer-column">
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-column">
             <h3>Sobre nosotros</h3>
             <p>
-                Creo productos y experiencias digitales
-                pensadas para ofrecer calidad y simplicidad.
+              Creo productos y experiencias digitales pensadas para ofrecer
+              calidad y simplicidad.
             </p>
-        </div>
+          </div>
 
-        <div class="footer-column">
+          <div class="footer-column">
             <h3>Contacto</h3>
             <ul>
-                <li>📞 +1 234 567 8901</li>
-                <li>✉️ contacto@ejemplo.com</li>
-                <li>📍 Colombia</li>
+              <li>📞 +1 234 567 8901</li>
+              <li>✉️ contacto@ejemplo.com</li>
+              <li>📍 Colombia</li>
             </ul>
-        </div>
+          </div>
 
-        <div class="footer-column">
+          <div class="footer-column">
             <h3>Enlaces</h3>
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#productos">Productos</a></li>
             </ul>
+          </div>
         </div>
 
-    </div>
-
-    <div class="footer-bottom">
-        <p>© 2026 Matthew Bettin. Todos los derechos reservados.</p>
-    </div>
-</footer>
-
-
+        <div class="footer-bottom">
+          <p>© 2026 Matthew Bettin. Todos los derechos reservados.</p>
+        </div>
+      </footer>
     </div>
 
     <div class="overlay" id="overlay"></div>
     <div class="toast" id="toast" aria-live="polite"></div>
     <aside class="cart-panel" id="cart-panel">
-    <div class="cart-header">
+      <div class="cart-header">
         <h2>Carrito</h2>
         <button id="close-cart">✖</button>
-    </div>
-    <div class="cart-items-wrapper">
+      </div>
+      <div class="cart-items-wrapper">
         <ul id="cart-items"></ul>
-    </div>
-    <div class="cart-footer">
+      </div>
+      <div class="cart-footer">
         <h3>Total: $<span id="cart-total">0</span></h3>
         <div class="cart-actions">
-            <button id="checkout-cart" class="checkout-cart-btn">Comprar</button>
-            <button id="clear-cart" class="clear-cart-btn">Vaciar carrito</button>
+          <button id="checkout-cart" class="checkout-cart-btn">Comprar</button>
+          <button id="clear-cart" class="clear-cart-btn">Vaciar carrito</button>
         </div>
-    </div>
-</aside>
+      </div>
+    </aside>
 
     <!-- Modal para ver imagen del producto -->
     <div class="modal-overlay" id="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close">✖</button>
-            <img id="modal-image" src="" alt="Producto" />
-        </div>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">✖</button>
+        <img id="modal-image" src="" alt="Producto" />
+      </div>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-    AOS.init();
+      AOS.init();
     </script>
     <script src="./scriptA.js"></script>
   </body>
