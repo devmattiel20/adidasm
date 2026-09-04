@@ -1,10 +1,10 @@
 # MattSports
 
-My versión of Adidas website
+Mi versión de tienda deportiva
 
 ## 📋 Descripción
 
-MattSports es una réplica del sitio web de Adidas, desarrollada como proyecto personal. Este proyecto demuestra habilidades en desarrollo frontend con tecnologías web modernas.
+MattSports es una tienda deportiva, desarrollada como proyecto personal. Este proyecto demuestra habilidades en desarrollo frontend con tecnologías web modernas.
 
 ## 🛠️ Tecnologías Utilizadas
 
