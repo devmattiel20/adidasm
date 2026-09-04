@@ -41,7 +41,3 @@ El proyecto está compuesto principalmente por:
 ## Licencia
 
 Este proyecto es de código abierto y está disponible bajo la licencia MIT.
-
----
-
-*Última actualización: 2026*
