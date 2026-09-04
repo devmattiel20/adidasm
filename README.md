@@ -36,7 +36,7 @@ El proyecto está compuesto principalmente por:
 
 ## 👨‍💻 Autor
 
-**Matt Siel** - [@devmattiel20](https://github.com/devmattiel20)
+**Matthew Bettin** - [@devmattiel20](https://github.com/devmattiel20)
 
 ## 📄 Licencia
 
